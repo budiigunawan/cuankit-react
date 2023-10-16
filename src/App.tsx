@@ -1,5 +1,6 @@
 import Navbar from './components/navbar/Navbar';
-import './index.css';
+import './assets/styles/index.css';
+import './assets/styles/fonts.css';
 
 function App() {
   return (
