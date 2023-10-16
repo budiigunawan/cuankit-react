@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { initFlowbite } from 'flowbite';
 
 function Navbar() {
-  useEffect(() => {
+  React.useEffect(() => {
     initFlowbite();
   }, []);
 
