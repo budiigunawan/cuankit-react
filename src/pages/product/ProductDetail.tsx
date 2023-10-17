@@ -1,4 +1,5 @@
 import PageLayout from '../../components/layout/PageLayout';
+import ProductDetailAside from '../../components/product/ProductDetailAside';
 import ProductDetailMain from '../../components/product/ProductDetailMain';
 
 export interface Category {
@@ -102,8 +103,17 @@ const productDetailData: Product = {
 };
 
 function ProductDetail() {
-  const { name, subtitle, galleries, thumbnails, description } =
-    productDetailData;
+  const {
+    name,
+    subtitle,
+    galleries,
+    thumbnails,
+    description,
+    features,
+    is_figma,
+    is_sketch,
+    file,
+  } = productDetailData;
   return (
     <PageLayout>
       <div className='container p-2 mx-auto my-10 max-w-7xl'>
@@ -115,7 +125,12 @@ function ProductDetail() {
             thumbnails={thumbnails}
             description={description}
           />
-          <div>aside</div>
+          <ProductDetailAside
+            features={features}
+            isFigma={is_figma}
+            isSketch={is_sketch}
+            file={file}
+          />
         </div>
       </div>
     </PageLayout>

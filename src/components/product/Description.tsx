@@ -3,7 +3,6 @@ type DescriptionProps = {
 };
 
 function Description({ description }: DescriptionProps) {
-  console.log(description, 'desc');
   return (
     <section className='' id='orders'>
       <h1 className='mt-8 mb-3 text-lg font-semibold'>About</h1>
