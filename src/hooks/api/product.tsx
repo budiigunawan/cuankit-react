@@ -19,13 +19,19 @@ type GetDetailProductProps = {
 };
 
 export const useGetDetailProduct = ({ id }: GetDetailProductProps) => {
-  return useQuery(['detailProduct', id], async () => {
-    const res = await axios({
-      method: 'GET',
-      url: `${baseUrl}/api/products`,
-      params: { id },
-    });
+  return useQuery(
+    ['detailProduct', id],
+    async () => {
+      const res = await axios({
+        method: 'GET',
+        url: `${baseUrl}/api/products`,
+        params: { id },
+      });
 
-    return res.data;
-  });
+      return res.data;
+    },
+    {
+      enabled: !!id,
+    }
+  );
 };

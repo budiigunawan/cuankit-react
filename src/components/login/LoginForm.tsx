@@ -1,5 +1,8 @@
+import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useLogin } from '../../hooks/api/auth';
+import { useGetDetailUser } from '../../hooks/api/user';
 
 type LoginInputs = {
   email: string;
@@ -13,9 +16,41 @@ function LoginForm() {
     formState: { errors },
   } = useForm<LoginInputs>();
 
+  const [token, setToken] = React.useState({
+    accessToken: '',
+    tokenType: '',
+  });
+
+  const navigate = useNavigate();
+  const { mutate, isLoading: isLoadingLogin } = useLogin();
+  const { data: userData, isLoading: isLoadingGetUser } = useGetDetailUser({
+    accessToken: token.accessToken,
+    tokenType: token.tokenType,
+  });
+
   const onSubmit = (data: LoginInputs): void => {
-    console.log(data, 'data login form');
+    mutate(
+      {
+        data,
+      },
+      {
+        onSuccess: (resp) => {
+          const { access_token, token_type } = resp;
+          setToken({ accessToken: access_token, tokenType: token_type });
+        },
+        onError: (err) => {
+          console.error(err);
+        },
+      }
+    );
   };
+
+  React.useEffect(() => {
+    if (!isLoadingGetUser && userData) {
+      console.log(userData, 'userData');
+      navigate('/home');
+    }
+  }, [userData, isLoadingGetUser, navigate]);
 
   return (
     <div className='w-full p-5 mx-auto sm:max-w-md'>
@@ -51,11 +86,12 @@ function LoginForm() {
           <button
             type='submit'
             className='inline-flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-full hover:bg-indigo-700 md:py-2 md:text-lg md:px-10 hover:shadow'
+            disabled={isLoadingLogin}
           >
             Sign In
           </button>
           <Link
-            to={'/login'}
+            to={isLoadingLogin ? '#' : '/register'}
             className='inline-flex items-center justify-center w-full px-8 py-3 mt-2 text-base font-medium text-black bg-gray-200 border border-transparent rounded-full hover:bg-gray-300 md:py-2 md:text-lg md:px-10 hover:shadow'
           >
             Create New Account
