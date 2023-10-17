@@ -1,5 +1,6 @@
 import PageLayout from '../../components/layout/PageLayout';
 import Benefits from '../../components/register/Benefits';
+import RegisterForm from '../../components/register/RegisterForm';
 import RegisterHeader from '../../components/register/RegisterHeader';
 
 function Register() {
@@ -12,7 +13,7 @@ function Register() {
             <div className='w-full p-5 mx-auto md:max-w-4xl'>
               <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
                 <Benefits />
-                <div>Form</div>
+                <RegisterForm />
               </div>
             </div>
           </div>
