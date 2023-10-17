@@ -29,13 +29,6 @@ function RegisterForm() {
     tokenType: token.tokenType,
   });
 
-  React.useEffect(() => {
-    if (!isLoadingGetUser && userData) {
-      console.log(userData, 'userData');
-      navigate('/home');
-    }
-  }, [userData, isLoadingGetUser, navigate]);
-
   const onSubmit = (data: RegisterInputs): void => {
     mutate(
       {
@@ -52,6 +45,13 @@ function RegisterForm() {
       }
     );
   };
+
+  React.useEffect(() => {
+    if (!isLoadingGetUser && userData) {
+      console.log(userData, 'userData');
+      navigate('/home');
+    }
+  }, [userData, isLoadingGetUser, navigate]);
 
   return (
     <div>
@@ -104,7 +104,7 @@ function RegisterForm() {
             Continue Sign Up
           </button>
           <Link
-            to={'/login'}
+            to={isLoadingRegister ? '#' : '/login'}
             className='inline-flex items-center justify-center w-full px-8 py-3 mt-2 text-base font-medium text-black bg-gray-200 border border-transparent rounded-full hover:bg-gray-300 md:py-2 md:text-lg md:px-10 hover:shadow'
           >
             Sign In
