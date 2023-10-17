@@ -1,4 +1,3 @@
-import React from 'react';
 import NavigationLinks from './NavigationLinks';
 import AuthButton from './AuthButton';
 

@@ -1,5 +1,3 @@
-import React from 'react';
-
 function AuthButton() {
   return (
     <div className='hidden md:block md:order-2'>
