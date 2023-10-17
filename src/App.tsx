@@ -6,6 +6,7 @@ import Register from './pages/authentication/Register';
 import Login from './pages/authentication/Login';
 import Pricing from './pages/pricing/Pricing';
 import Success from './pages/pricing/Success';
+import Categories from './pages/categories/Categories';
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
         <Route path='login' element={<Login />} />
         <Route path='pricing' element={<Pricing />} />
         <Route path='success' element={<Success />} />
-        <Route path='/' element={<Navigate to={'home'} replace />} />
+        <Route path='categories' element={<Categories />} />
+        <Route path='*' element={<Navigate to={'home'} replace />} />
       </Routes>
     </BrowserRouter>
   );
