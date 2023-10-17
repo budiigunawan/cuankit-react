@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 
 type RegisterInputs = {
   name: string;
@@ -66,6 +67,12 @@ function RegisterForm() {
           >
             Continue Sign Up
           </button>
+          <Link
+            to={'/login'}
+            className='inline-flex items-center justify-center w-full px-8 py-3 mt-2 text-base font-medium text-black bg-gray-200 border border-transparent rounded-full hover:bg-gray-300 md:py-2 md:text-lg md:px-10 hover:shadow'
+          >
+            Sign In
+          </Link>
         </div>
       </form>
     </div>
