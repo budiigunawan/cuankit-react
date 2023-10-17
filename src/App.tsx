@@ -8,6 +8,7 @@ import Pricing from './pages/pricing/Pricing';
 import Success from './pages/pricing/Success';
 import Categories from './pages/categories/Categories';
 import CategoryDetail from './pages/categories/CategoryDetail';
+import ProductDetail from './pages/product/ProductDetail';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path='' element={<Categories />} />
           <Route path=':id' element={<CategoryDetail />} />
         </Route>
+        <Route path='product/:id' element={<ProductDetail />} />
         <Route path='*' element={<Navigate to={'home'} replace />} />
       </Routes>
     </BrowserRouter>
