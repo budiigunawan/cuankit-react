@@ -6,8 +6,8 @@ export interface Category {
   name: string;
   thumbnails: string;
   deleted_at: string | null;
-  created_at: string | null;
-  updated_at: string | null;
+  created_at: string;
+  updated_at: string;
   products_count: number;
 }
 
