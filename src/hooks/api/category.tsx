@@ -19,13 +19,19 @@ type GetDetailCategoryProps = {
 };
 
 export const useGetDetailCategory = ({ id }: GetDetailCategoryProps) => {
-  return useQuery(['detailCategory', id], async () => {
-    const res = await axios({
-      method: 'GET',
-      url: `${baseUrl}/api/categories`,
-      params: { id },
-    });
+  return useQuery(
+    ['detailCategory', id],
+    async () => {
+      const res = await axios({
+        method: 'GET',
+        url: `${baseUrl}/api/categories`,
+        params: { id },
+      });
 
-    return res.data;
-  });
+      return res.data;
+    },
+    {
+      enabled: !!id,
+    }
+  );
 };
