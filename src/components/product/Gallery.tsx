@@ -32,24 +32,25 @@ function Gallery({ galleries, thumbnails }: GalleryProps) {
         className='w-full mt-6 rounded-2xl'
       />
       <div className='grid grid-cols-4 gap-4 mt-4'>
-        {galleries.length &&
-          galleries.map((gallery, idx) => (
-            <div
-              key={idx}
-              className='overflow-hidden cursor-pointer rounded-2xl'
-              onClick={() => {
-                handleSelectImage(gallery.url);
-              }}
-            >
-              <img
-                src={gallery.url}
-                className={
-                  selectedImage === gallery.url ? activeClass : inactiveClass
-                }
-                alt={`gallery-${idx}`}
-              />
-            </div>
-          ))}
+        {galleries.length
+          ? galleries.map((gallery, idx) => (
+              <div
+                key={idx}
+                className='overflow-hidden cursor-pointer rounded-2xl'
+                onClick={() => {
+                  handleSelectImage(gallery.url);
+                }}
+              >
+                <img
+                  src={gallery.url}
+                  className={
+                    selectedImage === gallery.url ? activeClass : inactiveClass
+                  }
+                  alt={`gallery-${idx}`}
+                />
+              </div>
+            ))
+          : null}
       </div>
     </section>
   );
