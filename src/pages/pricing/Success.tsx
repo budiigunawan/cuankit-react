@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import successImage from '../../assets/img/success-illustration.svg';
 
 function Success() {
   return (
@@ -6,11 +7,7 @@ function Success() {
       <div className='mx-auto max-w-7xl'>
         <div className='flex flex-col items-center w-full min-h-screen pt-6 sm:justify-center sm:pt-0'>
           <div className='w-full p-5 mx-auto sm:max-w-md'>
-            <img
-              src='@/assets/img/success-illustration.svg'
-              alt=''
-              className='mb-10 w-4xl'
-            />
+            <img src={successImage} alt='' className='mb-10 w-4xl' />
             <h2 className='mb-2 text-2xl font-bold text-center'>
               Payment Success
             </h2>
