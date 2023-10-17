@@ -1,4 +1,5 @@
-import CategoryCard from '../category/CategoryCard';
+import CategoryCard from '../../components/category/CategoryCard';
+import PageLayout from '../../components/layout/PageLayout';
 
 export interface Category {
   id: number;
@@ -55,16 +56,18 @@ const categoryList: Category[] = [
 
 function Categories() {
   return (
-    <div className='container px-4 mx-auto my-16 md:px-12'>
-      <h2 className='mb-4 text-xl font-medium md:mb-0 md:text-lg'>
-        Top Categories
-      </h2>
-      <div className='flex flex-wrap -mx-1 lg:-mx-4'>
-        {categoryList.map((category) => (
-          <CategoryCard key={category.id} category={category} />
-        ))}
+    <PageLayout>
+      <div className='container px-4 mx-auto my-16 md:px-12'>
+        <h2 className='mb-4 text-xl font-medium md:mb-0 md:text-lg'>
+          All Categories
+        </h2>
+        <div className='flex flex-wrap -mx-1 lg:-mx-4'>
+          {categoryList.map((category) => (
+            <CategoryCard key={category.id} category={category} />
+          ))}
+        </div>
       </div>
-    </div>
+    </PageLayout>
   );
 }
 

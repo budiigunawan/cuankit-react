@@ -1,8 +1,11 @@
 import React from 'react';
 import { initFlowbite } from 'flowbite';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function NavigationLinks() {
+  const linkClass =
+    'block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-indigo-600 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700';
+
   React.useEffect(() => {
     initFlowbite();
   }, []);
@@ -38,44 +41,51 @@ function NavigationLinks() {
       >
         <ul className='flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-regular'>
           <li>
-            <Link
+            {/* md:text-indigo-600 */}
+            <NavLink
               to={'/home'}
-              className='block py-2 pl-3 pr-4 text-white bg-indigo-600 rounded md:bg-transparent md:text-indigo-600 md:p-0 dark:text-white'
+              className={({ isActive }) =>
+                isActive ? `md:text-indigo-600 ${linkClass}` : linkClass
+              }
             >
               Home
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
               to={'/categories'}
-              className='block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-indigo-600 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700'
+              className={({ isActive }) =>
+                isActive ? `md:text-indigo-600 ${linkClass}` : linkClass
+              }
             >
               Categories
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
               to={'/pricing'}
-              className='block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-indigo-600 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700'
+              className={({ isActive }) =>
+                isActive ? `md:text-indigo-600 ${linkClass}` : linkClass
+              }
             >
               Pricing
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
               to={'/login'}
               className='block md:hidden py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-indigo-600 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700'
             >
               Sign In
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
               to={'/register'}
               className='block block md:hidden py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-indigo-600 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700'
             >
               Sign Up
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
