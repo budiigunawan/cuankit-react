@@ -1,4 +1,4 @@
-import ProductCard from './ProductCard';
+import ProductCard from '../product/ProductCard';
 
 export interface Category {
   id: number;

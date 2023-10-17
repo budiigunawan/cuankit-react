@@ -1,23 +1,5 @@
 import { Link } from 'react-router-dom';
 
-export interface Category {
-  id: number;
-  name: string;
-  thumbnails: string;
-  deleted_at: string | null;
-  created_at: string;
-  updated_at: string;
-}
-
-export interface Gallery {
-  id: number;
-  products_id: number;
-  url: string;
-  deleted_at: string | null;
-  created_at: string;
-  updated_at: string;
-}
-
 export interface Product {
   id: number;
   name: string;
@@ -33,8 +15,6 @@ export interface Product {
   deleted_at: string | null;
   created_at: string;
   updated_at: string;
-  category: Category;
-  galleries: Gallery[];
 }
 
 type ProductCardProps = {
