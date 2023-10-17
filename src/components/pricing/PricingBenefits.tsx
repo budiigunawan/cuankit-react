@@ -27,14 +27,16 @@ const benefitList: Benefit[] = [
   },
 ];
 
-function Benefits() {
+function PricingBenefits() {
   return (
-    <div className='mx-auto md:mx-0'>
-      {benefitList.map((benefit, idx) => (
-        <BenefitCard key={idx} benefit={benefit} />
-      ))}
+    <div className='w-full p-5 mx-auto mb-10 md:max-w-7xl'>
+      <div className='grid grid-cols-1 gap-4 mx-auto md:grid-cols-3 md:mx-0'>
+        {benefitList.map((benefit, idx) => (
+          <BenefitCard key={idx} benefit={benefit} />
+        ))}
+      </div>
     </div>
   );
 }
 
-export default Benefits;
+export default PricingBenefits;
