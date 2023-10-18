@@ -4,7 +4,7 @@ Cuankit adalah kit untuk mencari cuan. Website ini menyediakan website ui kit ya
 Cuankit terinspirasi dari materi course [Bootcampe Vue JS](https://buildwithangga.com/kelas/bootcamp-front-end-developer-mastering-vue-js-3) yang saya modifikasi ke React.
 
 **live demo** : [https://cuankit-react.vercel.app](https://cuankit-react.vercel.app/home)
-**presentation** : [loom]()
+**presentation** : [loom](https://www.loom.com/share/9c7bde25562e464e804c12c5734f4a78)
 
 ## Tech stack
 - React
